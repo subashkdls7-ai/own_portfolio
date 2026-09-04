@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV — Hari Lal Kandel</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@200;300;400;500;600&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -169,6 +170,29 @@
     body { padding: 0; }
     .cv-header { padding: 2rem 2.5rem; }
     .cv-body { padding: 1.5rem 2.5rem 2rem; }
+    #cv-loader { display: none !important; }
+  }
+  #cv-loader {
+    position: fixed; inset: 0;
+    background: rgba(250,248,243,0.96);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 9999;
+    font-family: var(--body);
+  }
+  #cv-loader.hidden { display: none; }
+  .cv-spinner {
+    width: 40px; height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: var(--emerald);
+    border-radius: 50%;
+    animation: cvSpin 0.8s linear infinite;
+    margin-bottom: 1.2rem;
+  }
+  @keyframes cvSpin { to { transform: rotate(360deg); } }
+  #cv-loader p {
+    font-size: 0.85rem; font-weight: 400;
+    color: var(--ink-soft); letter-spacing: 0.04em;
   }
 </style>
 </head>
@@ -311,5 +335,31 @@
   </div>
 
 </div>
+<div id="cv-loader">
+  <div class="cv-spinner"></div>
+  <p>Generating your PDF...</p>
+</div>
+<script>
+window.addEventListener('load', function() {
+  var el = document.querySelector('.cv-body');
+  var header = document.querySelector('.cv-header');
+  var container = document.createElement('div');
+  container.appendChild(header.cloneNode(true));
+  container.appendChild(el.cloneNode(true));
+  container.style.width = '794px';
+
+  var opt = {
+    margin:       0,
+    filename:     'Hari_Lal_Kandel_CV.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(container).save().then(function() {
+    document.getElementById('cv-loader').classList.add('hidden');
+  });
+});
+</script>
 </body>
 </html>
