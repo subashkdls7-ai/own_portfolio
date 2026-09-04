@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari Lal Kandel</title>
+
+<!-- Favicon for browser tab & Google search -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Google Search Site Icon (minimum 48x48px) -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+
+<!-- Open Graph for social sharing -->
+<meta property="og:title" content="Hari Lal Kandel">
+<meta property="og:description" content="Personal website of Hari Lal Kandel">
+<meta property="og:image" content="logo.png">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --emerald:     #1a5c45;
+  --emerald-mid: #2d7a5f;
+  --emerald-lt:  #3d9970;
+  --emerald-pale:#e8f5f0;
+  --gold:        #c9a84c;
+  --cream:       #faf8f3;
+  --cream-dark:  #f0ece1;
+  --ink:         #1a1f1c;
+  --ink-soft:    #3d4640;
+  --mist:        #8a9e95;
+  --border:      #dde8e3;
+  --display: 'Times New Roman', Times, serif;
+  --body: 'Outfit', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--emerald); border-radius: 2px; }
+
+/* CURSOR */
+*, a { cursor: none; }
+#cur {
+  position: fixed; width: 8px; height: 8px;
+  background: var(--emerald); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  opacity: 0;
+}
+#cur-r {
+  position: fixed; width: 34px; height: 34px;
+  border: 1.5px solid var(--emerald); border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  transition: width 0.25s, height 0.25s, opacity 0.2s, border-color 0.2s;
+}
+body.h #cur { width: 10px; height: 10px; background: var(--gold); }
+body.h #cur-r { width: 52px; height: 52px; opacity: 0.12; border-color: var(--gold); }
+body:active #cur { width: 5px; height: 5px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  height: 64px; padding: 0 4rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250,248,243,0.93);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.8rem;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 34px; height: 34px;
+  background: var(--emerald);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 6px;
+}
+.nav-logo-mark span {
+  font-family: var(--display); font-size: 0.85rem; font-weight: 700;
+  color: #fff; letter-spacing: -0.02em;
+}
+.nav-logo-text {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 400;
+  letter-spacing: 0.06em; color: var(--ink);
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: var(--body); font-size: 0.8rem; font-weight: 300;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 2px; background: var(--emerald); transition: width 0.3s;
+  border-radius: 1px;
+}
+.nav-links a:hover { color: var(--emerald); }
+.nav-links a:hover::after { width: 100%; }
+
+/* HERO */
+#hero {
+  height: 100vh;
+  background: var(--cream);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 5rem 4rem;
+}
+
+/* decorative geometry */
+.h-circle {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(26,92,69,0.06);
+  pointer-events: none;
+}
+.h-c1 { width: 600px; height: 600px; top: -200px; right: -150px; border-color: rgba(26,92,69,0.08); }
+.h-c2 { width: 350px; height: 350px; top: 60px; right: 80px; border-color: rgba(201,168,76,0.15); }
+.h-c3 { width: 900px; height: 900px; bottom: -400px; left: -300px; border-color: rgba(26,92,69,0.05); }
+
+.h-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(26,92,69,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,92,69,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.h-gold-bar {
+  position: absolute; top: 0; left: 5rem;
+  width: 2px; height: 120px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  opacity: 0; animation: fadeIn 1s ease 0.2s forwards;
+}
+
+.h-eyebrow {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 300;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 1.6rem; position: relative; z-index: 1;
+  opacity: 0; animation: up 0.8s ease 0.3s forwards;
+}
+
+.h-name {
+  font-family: var(--display);
+  font-size: clamp(3rem, 7.5vw, 8.5rem);
+  font-weight: 900; line-height: 1; letter-spacing: -0.03em;
+  color: var(--ink); position: relative; z-index: 1;
+  opacity: 0; animation: up 1s ease 0.5s forwards;
+  white-space: nowrap;
+}
+.h-name .it { font-weight: 400; color: var(--mist); }
+
+.h-subtitle {
+  font-family: var(--body); font-size: 1.15rem; font-weight: 500;
+  letter-spacing: 0.04em; color: var(--emerald);
+  margin-top: 1.1rem; position: relative; z-index: 1;
+  opacity: 0; animation: up 0.8s ease 0.6s forwards;
+}
+.h-aboutline {
+  font-family: var(--body); font-size: 0.98rem; font-weight: 300;
+  line-height: 1.7; color: var(--ink-soft);
+  max-width: 620px; margin-top: 0.9rem; position: relative; z-index: 1;
+  opacity: 0; animation: up 0.8s ease 0.7s forwards;
+}
+
+/* Hero photo */
+.h-photo-wrap {
+  position: absolute; top: 42%; right: 8rem;
+  transform: translateY(-50%); z-index: 1;
+  opacity: 0; animation: fadeIn 1s ease 0.7s forwards;
+}
+.h-photo {
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(26,92,69,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.h-photo:hover {
+  transform: scale(1.05);
+  border-color: var(--emerald);
+}
+
+.h-foot {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-top: 3.5rem; position: relative; z-index: 1;
+  opacity: 0; animation: up 0.9s ease 0.85s forwards;
+  max-width: 55%;
+}
+.h-role {
+  display: flex; align-items: center; gap: 1rem;
+}
+.h-role-badge {
+  background: var(--emerald); color: #fff;
+  font-family: var(--body); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.4rem 1rem; border-radius: 2px;
+}
+.h-role-text {
+  font-family: var(--body); font-size: 0.82rem; font-weight: 300;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mist);
+}
+.h-tagline {
+  font-family: var(--display); font-size: 1.05rem;
+  color: var(--ink-soft); max-width: 260px; text-align: right; line-height: 1.6;
+}
+
+.h-btns {
+  display: flex; gap: 1rem; margin-top: 3.2rem;
+  position: relative; z-index: 1;
+  opacity: 0; animation: up 0.9s ease 1.05s forwards;
+}
+.btn {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; padding: 0.9rem 2.4rem;
+  display: inline-block; transition: all 0.26s ease; border: none;
+  border-radius: 3px;
+}
+.btn-a {
+  background: var(--gold); color: var(--ink); font-weight: 500;
+}
+.btn-a:hover { background: #dbb95a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+.btn-b {
+  background: transparent; color: var(--ink);
+  border: 1px solid rgba(26,31,28,0.25);
+}
+.btn-b:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+.h-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+  opacity: 0; animation: fadeIn 1s ease 1.6s forwards; z-index: 1;
+}
+.h-scroll-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(26,92,69,0.3);
+  animation: sdot 2.2s ease-in-out infinite;
+}
+@keyframes sdot { 0%,100%{transform:translateY(0);opacity:.35} 50%{transform:translateY(10px);opacity:.9} }
+.h-scroll-lbl {
+  font-family: var(--body); font-size: 0.62rem; font-weight: 200;
+  letter-spacing: 0.28em; color: var(--mist);
+  text-transform: uppercase; writing-mode: vertical-lr;
+}
+
+/* SECTION BASE */
+.hr { height: 1px; background: var(--border); margin: 0 4rem; }
+
+section { padding: 5rem 4rem; }
+
+.sl { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4rem; }
+.st {
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  font-weight: 700; letter-spacing: -0.025em; line-height: 1;
+  color: #fff;
+  background: linear-gradient(135deg, var(--emerald) 0%, #0f3d2c 100%);
+  padding: 0.8rem 1.6rem; border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0 6px 20px rgba(26,92,69,0.18);
+}
+.st em { font-weight: 400; color: var(--gold); }
+
+/* ABOUT */
+#about {
+  display: grid; grid-template-columns: 1fr 1.15fr;
+  gap: 8rem; align-items: start;
+  background: var(--cream);
+  padding: 3.5rem 4rem 5rem;
+}
+.bio {
+  font-family: var(--display); font-size: 1.28rem;
+  font-weight: 400; line-height: 1.95; color: var(--ink-soft);
+  border-left: 3px solid var(--emerald); padding-left: 1.5rem;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.kvl { margin-top: 0.5rem; }
+.kv {
+  display: grid; grid-template-columns: 22px 110px 1fr;
+  gap: 0.75rem; padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border); align-items: baseline;
+}
+.kv-ic {
+  font-size: 0.5rem; color: var(--gold); line-height: 1; transform: translateY(-1px);
+}
+.kk {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 300;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--mist);
+}
+.kv2 {
+  font-family: var(--body); font-size: 0.95rem; font-weight: 400; color: var(--ink);
+}
+.kv2 a {
+  color: var(--ink); text-decoration: none;
+  transition: color 0.2s;
+}
+.kv2 a:hover { color: var(--emerald); }
+
+/* RESEARCH & PUBLICATIONS */
+#research {
+  background: var(--cream-dark); padding: 0;
+}
+#research .wrap { max-width: 1100px; margin: 0 auto; padding: 4.5rem 4rem; }
+.research-intro {
+  font-family: var(--display); font-size: 0.95rem;
+  color: var(--mist); margin-bottom: 2.6rem; max-width: 460px; line-height: 1.6;
+}
+.research-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; align-items: stretch;
+}
+.rp {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem 1.9rem;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; gap: 0.8rem;
+  transition: box-shadow 0.4s cubic-bezier(.22,.61,.36,1), transform 0.4s cubic-bezier(.22,.61,.36,1), border-color 0.3s;
+  animation: rpFloat 6s ease-in-out infinite;
+}
+.rp:nth-child(2) { animation-delay: 1.5s; }
+.rp::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--emerald-lt));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.45s ease;
+}
+.rp:hover::before { transform: scaleX(1); }
+.rp:hover {
+  box-shadow: 0 16px 46px rgba(26,92,69,0.14);
+  transform: translateY(-8px);
+  border-color: var(--emerald-pale);
+}
+@keyframes rpFloat {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-8px); }
+}
+.rp-tag {
+  font-family: var(--body); font-size: 0.66rem; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--emerald); background: var(--emerald-pale);
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.32rem 0.95rem; border-radius: 40px;
+  align-self: flex-start;
+}
+.rp-tag::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--emerald); animation: rpDot 2s ease-in-out infinite;
+}
+@keyframes rpDot {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%     { transform: scale(0.5); opacity: 0.4; }
+}
+.rp-title {
+  font-family: var(--display); font-size: 1.25rem; font-weight: 700;
+  line-height: 1.3; color: var(--ink); margin: 0;
+}
+.rp-meta {
+  font-family: var(--body); font-size: 0.85rem; line-height: 1.7;
+  color: var(--ink-soft);
+}
+.rp-meta b { color: var(--emerald); font-weight: 600; }
+.rp-pub {
+  font-family: var(--body); font-size: 0.86rem; line-height: 1.7;
+  color: var(--ink-soft); margin-top: auto; padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+.rp-pub em { font-style: italic; color: var(--ink); }
+
+/* EDUCATION */
+#education {
+  background: var(--cream-dark); padding: 4.5rem 4rem;
+}
+.edu-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.edu-c {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 3rem 2.8rem;
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+}
+.edu-c::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--emerald), var(--emerald-lt));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.edu-c:hover::before { transform: scaleX(1); }
+.edu-c:hover {
+  box-shadow: 0 12px 40px rgba(26,92,69,0.1);
+  transform: translateY(-4px);
+  border-color: var(--emerald-pale);
+}
+.edu-tag {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 300;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--emerald-lt);
+  background: var(--emerald-pale); display: inline-block;
+  padding: 0.3rem 0.9rem; border-radius: 2px;
+  margin-bottom: 2rem;
+}
+.edu-title {
+  font-family: var(--display); font-size: 1.7rem; font-weight: 700;
+  line-height: 1.15; color: var(--ink); margin-bottom: 0.8rem;
+}
+.edu-title em { font-weight: 400; color: var(--emerald); }
+.edu-school {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 300;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--mist);
+}
+
+/* CERTS */
+#certifications { background: var(--cream); }
+.c-sub {
+  font-family: var(--display); font-size: 1rem;
+  color: var(--mist); margin-bottom: 3rem; max-width: 460px;
+}
+.cg {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.cc {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2.4rem 2.2rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+}
+.cc::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--emerald), var(--gold));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.cc:hover::after { transform: scaleX(1); }
+.cc:hover {
+  box-shadow: 0 10px 36px rgba(26,92,69,0.09);
+  transform: translateY(-4px);
+  border-color: var(--emerald-pale);
+}
+.ct {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 300;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--emerald-lt);
+  background: var(--emerald-pale); display: inline-block;
+  padding: 0.25rem 0.75rem; border-radius: 2px;
+  width: fit-content;
+}
+.cn {
+  font-family: var(--display); font-size: 1.05rem; font-weight: 700;
+  line-height: 1.35; color: var(--ink);
+}
+.ci {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 300;
+  color: var(--mist); line-height: 1.6;
+}
+.cd {
+  font-family: var(--body); font-size: 0.72rem; font-weight: 300;
+  color: var(--gold); margin-top: auto; letter-spacing: 0.08em;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.cd::before {
+  content: ''; width: 14px; height: 1px;
+  background: var(--gold); display: inline-block;
+}
+.btn-view {
+  font-family: var(--body); font-size: 0.72rem; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #fff; background: var(--emerald);
+  padding: 0.55rem 1.4rem; border: none; border-radius: 3px;
+  cursor: pointer; transition: all 0.25s ease;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.btn-view:hover { background: var(--emerald-mid); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(26,92,69,0.2); }
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox img {
+  max-width: 85%;
+  max-height: 65vh;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox-caption {
+  text-align: center;
+  color: #fff;
+  margin-top: 1.5rem;
+  max-width: 600px;
+}
+.lb-type {
+  font-family: var(--body);
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,0.2);
+  padding: 0.25rem 0.7rem;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+.lb-title {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+}
+.lb-issuer {
+  font-family: var(--body);
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.4rem;
+}
+.lb-date {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.lightbox-close:hover {
+  opacity: 1;
+}
+.lightbox-nav {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+.lb-prev, .lb-next {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  pointer-events: auto;
+}
+.lb-prev:hover, .lb-next:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* PROGRAMS & ACTIVITIES GALLERY */
+#programs { background: var(--cream-dark); }
+.prog-sub {
+  font-family: var(--display); font-size: 1rem;
+  color: var(--mist); margin-bottom: 3rem; max-width: 500px;
+}
+.prog-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.prog-card:hover {
+  box-shadow: 0 12px 40px rgba(26,92,69,0.1);
+  transform: translateY(-4px);
+}
+.prog-card-header {
+  padding: 1.8rem 2rem 0;
+}
+.prog-tag {
+  font-family: var(--body); font-size: 0.65rem; font-weight: 300;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--emerald-lt);
+  background: var(--emerald-pale); display: inline-block;
+  padding: 0.3rem 0.9rem; border-radius: 3px;
+  margin-bottom: 1rem;
+}
+.prog-title {
+  font-family: var(--display); font-size: 1.2rem; font-weight: 700;
+  line-height: 1.3; color: var(--ink); margin-bottom: 0.4rem;
+}
+.prog-organizer {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 300;
+  color: var(--mist); line-height: 1.5; margin-bottom: 1rem;
+}
+.prog-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.prog-gallery-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.prog-gallery-3 img:first-child {
+  border-right: 1px solid var(--border);
+}
+.prog-gallery-3 img:nth-child(2) {
+  border-right: 1px solid var(--border);
+}
+.prog-gallery-4 {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.prog-gallery-4 img:nth-child(1),
+.prog-gallery-4 img:nth-child(2),
+.prog-gallery-4 img:nth-child(3) {
+  border-right: 1px solid var(--border);
+}
+.prog-gallery-5 {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.prog-gallery-5 img:nth-child(1),
+.prog-gallery-5 img:nth-child(2),
+.prog-gallery-5 img:nth-child(3),
+.prog-gallery-5 img:nth-child(4),
+.prog-gallery-5 img:nth-child(5) {
+  border-right: 1px solid var(--border);
+}
+.prog-gallery img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  border-top: 1px solid var(--border);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.prog-gallery img:first-child {
+  border-right: 1px solid var(--border);
+}
+.prog-gallery img:hover {
+  transform: scale(1.03);
+  z-index: 1;
+}
+
+/* PROGRAM LIGHTBOX */
+.prog-lightbox {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 10000;
+  align-items: center; justify-content: center;
+}
+.prog-lightbox.active { display: flex; }
+.prog-lightbox img {
+  max-width: 85%; max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.prog-lb-close {
+  position: absolute; top: 20px; right: 30px;
+  font-size: 2.5rem; color: #fff;
+  cursor: pointer; opacity: 0.7;
+  transition: opacity 0.2s;
+  background: none; border: none;
+}
+.prog-lb-close:hover { opacity: 1; }
+.prog-lb-caption {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  color: #fff; text-align: center;
+  font-family: var(--body); font-size: 0.8rem; font-weight: 300;
+  letter-spacing: 0.08em; color: rgba(255,255,255,0.6);
+}
+
+/* CONTACT */
+#contact {
+  background: linear-gradient(135deg, var(--emerald) 0%, #0a2a1e 100%);
+  padding: 4.5rem 4rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.c-bg-text {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--display); font-size: clamp(6rem, 18vw, 20rem);
+  font-weight: 900; color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+  pointer-events: none; white-space: nowrap; letter-spacing: -0.04em;
+}
+#contact .sl { justify-content: center; position: relative; z-index: 1; }
+#contact .sn { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+#contact .st { color: #fff; }
+#contact .st em { color: var(--gold); }
+
+.ctd {
+  display: flex; justify-content: center;
+  gap: 1.5rem; flex-wrap: wrap;
+  max-width: 820px; margin: 4rem auto 0;
+  position: relative; z-index: 1;
+}
+.ct2 {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 2.4rem 2.8rem; flex: 1; min-width: 200px;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.ct2:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
+}
+.ctl {
+  font-family: var(--body); font-size: 0.65rem; font-weight: 300;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 0.9rem;
+}
+.ctv {
+  font-family: var(--display); font-size: 0.95rem; font-weight: 400;
+  color: #fff; text-decoration: none; display: block;
+  transition: color 0.2s; word-break: normal; overflow-wrap: break-word;
+}
+.ctv:hover { color: var(--gold); }
+
+/* FOOTER */
+footer {
+  background: #071a12;
+  padding: 1.8rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.fc {
+  font-family: var(--body); font-size: 0.68rem; font-weight: 200;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+.fc-em { color: var(--gold); opacity: 0.6; }
+
+/* REVEAL */
+.rv { opacity: 0; transform: translateY(28px); transition: opacity 0.85s cubic-bezier(.22,.61,.36,1), transform 0.85s cubic-bezier(.22,.61,.36,1); will-change: opacity, transform; }
+.rv.on { opacity: 1; transform: none; }
+/* directional variations */
+.rv-l { transform: translateX(-40px); }
+.rv-r { transform: translateX(40px); }
+.rv-s { transform: scale(0.9); }
+.rv-b { transform: translateY(60px); }
+.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
+.d4{transition-delay:.32s} .d5{transition-delay:.4s}  .d6{transition-delay:.48s}
+.d7{transition-delay:.56s} .d8{transition-delay:.64s} .d9{transition-delay:.72s}
+
+@keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes floaty { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-14px) } }
+@keyframes pulseGold { 0%,100%{ box-shadow:0 0 0 0 rgba(201,168,76,.45) } 50%{ box-shadow:0 0 0 16px rgba(201,168,76,0) } }
+@keyframes spinSlow { from{ transform: rotate(0deg) } to{ transform: rotate(360deg) } }
+@keyframes blob { 0%,100%{ border-radius:50%; } 33%{ border-radius:42% 58% 60% 40%/45% 55% 45% 55%; } 66%{ border-radius:58% 42% 40% 60%/55% 45% 55% 45%; } }
+
+/* hero photo blob morph */
+.h-photo { border-radius: 50% 47% 53% 45%/50% 55% 45% 50%; animation: blob 10s ease-in-out infinite; }
+.h-photo-wrap::after {
+  content:''; position:absolute; inset:-18px; border-radius:50%;
+  border:1.5px dashed rgba(201,168,76,0.4);
+  animation: spinSlow 22s linear infinite; pointer-events:none;
+}
+
+/* card + button hover animations */
+.cc, .edu-c, .prog-card { transition: transform 0.45s cubic-bezier(.22,.61,.36,1), box-shadow 0.45s ease, border-color 0.3s ease; }
+.cc:hover, .edu-c:hover, .prog-card:hover { transform: translateY(-6px); }
+.btn-a { animation: pulseGold 2.6s infinite; }
+.h-c2 { animation: floaty 8s ease-in-out infinite; }
+.h-c1 { animation: floaty 9s ease-in-out infinite; }
+
+/* image zoom on gallery hover + hover reveal on cards */
+.prog-gallery img { transition: transform 0.6s cubic-bezier(.22,.61,.36,1), filter 0.4s ease; }
+.prog-gallery img:hover { transform: scale(1.06); filter: brightness(1.05); }
+.h-photo { transition: transform 0.5s cubic-bezier(.22,.61,.36,1), border-color 0.3s ease; }
+.ct2 { transition: transform 0.3s ease; }
+.ct2:hover { transform: translateX(4px); }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { gap: 1.4rem; }
+  #hero { padding: 0 1.5rem 5.5rem; }
+  .h-name { font-size: clamp(2.2rem, 10vw, 4.5rem); white-space: normal; }
+  .h-photo-wrap { position: relative; top: auto; right: auto; transform: none; margin-bottom: 2rem; }
+  .h-photo { width: 160px; height: 160px; border-radius: 50%; }
+  .h-foot { max-width: 100%; }
+  .h-foot { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  .h-tagline { text-align: left; max-width: 100%; }
+  .hr { margin: 0 1.5rem; }
+  section { padding: 4rem 1.5rem; }
+  #about { grid-template-columns: 1fr; gap: 3rem; padding: 3rem 1.5rem 4rem; }
+  #education { padding: 4rem 1.5rem; }
+  #research .wrap { padding: 4rem 1.5rem; }
+  .research-grid { grid-template-columns: 1fr; }
+  .edu-row { grid-template-columns: 1fr; }
+  .cg { grid-template-columns: 1fr; }
+  .prog-gallery, .prog-gallery-3 { grid-template-columns: 1fr; }
+  .prog-gallery-3 img, .prog-gallery img { border-right: none; border-bottom: 1px solid var(--border); }
+  #contact { padding: 4rem 1.5rem; }
+  footer { padding: 1.4rem 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
+  #cur, #cur-r { display: none; }
+  *, a { cursor: auto; }
+}
+@media (min-width: 901px) and (max-width: 1200px) {
+  .cg { grid-template-columns: repeat(2, 1fr); }
+  .prog-gallery-3 { grid-template-columns: 1fr 1fr; }
+  .prog-gallery-3 img:nth-child(2) { border-right: 1px solid var(--border); }
+  .prog-gallery-3 img:nth-child(3) { border-right: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-r"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-mark"><span>HK</span></div>
+    <span class="nav-logo-text">Hari Lal Kandel</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certificates &amp; Achievements</a></li>
+    <li><a href="#programs">Projects &amp; Activities</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-circle h-c1"></div>
+  <div class="h-circle h-c2"></div>
+  <div class="h-circle h-c3"></div>
+  <div class="h-grid"></div>
+  <div class="h-gold-bar"></div>
+
+  <div class="h-photo-wrap">
+    <img src="pp.jpg" alt="Hari Lal Kandel" class="h-photo">
+  </div>
+
+  <p class="h-eyebrow">Portfolio · BBA Graduate · Nepal</p>
+
+  <h1 class="h-name">
+    Hari Lal Kandel
+  </h1>
+
+  <p class="h-subtitle">BBA Graduate | Business &amp; Management Professional</p>
+  <p class="h-aboutline">Passionate about business, research, finance, and continuous learning. Building knowledge through academic research, business competitions, leadership activities, and practical projects.</p>
+
+  <div class="h-btns">
+    <a href="#certifications" class="btn btn-a">Certificates &amp; Achievements</a>
+    <a href="#programs" class="btn btn-b">Projects &amp; Activities</a>
+    <a href="#contact" class="btn btn-b">Contact Me</a>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="rv rv-l">
+    <div class="sl"><h2 class="st">About Me</h2></div>
+
+    <p class="bio">I hold a BBA from Valley State College (affiliated with Pokhara University), with a strong interest in business management, finance, marketing, research, and analytical decision-making. Through research conferences, business simulations, stock pitching competitions, and leadership roles, I&#39;ve built solid skills in communication, presentation, teamwork, and problem-solving. I&#39;m committed to continuous learning and contributing meaningfully to the business community.</p>
+  </div>
+
+  <div class="rv rv-r d2">
+    <div class="kvl">
+      <div class="kv"><span class="kv-ic">&#9679;</span><span class="kk">Name</span><span class="kv2">Hari Lal Kandel</span></div>
+      <div class="kv"><span class="kv-ic">&#9679;</span><span class="kk">Degree</span><span class="kv2">Bachelor of Business Administration</span></div>
+      <div class="kv"><span class="kv-ic">&#9679;</span><span class="kk">College</span><span class="kv2">Valley State College, Chitwan</span></div>
+      <div class="kv"><span class="kv-ic">&#9679;</span><span class="kk">Affiliated</span><span class="kv2">Pokhara University</span></div>
+      <div class="kv"><span class="kv-ic">&#9679;</span><span class="kk">Graduated</span><span class="kv2">2026</span></div>
+      <div class="kv"><span class="kv-ic">&#9679;</span><span class="kk">Address</span><span class="kv2">Bharatpur-20, Chitwan, Nepal</span></div>
+      <div class="kv"><span class="kv-ic">&#9679;</span><span class="kk">LinkedIn</span><span class="kv2"><a href="https://www.linkedin.com/in/hari-kandel-40b461362/" target="_blank" rel="noopener noreferrer">linkedin.com/in/hari-kandel</a></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- RESEARCH & PUBLICATIONS -->
+<section id="research">
+  <div class="wrap">
+    <div class="sl rv" style="margin-bottom:1.5rem;"><h2 class="st">Research &amp; Publications</h2></div>
+    <p class="research-intro rv d1">Academic research presented at international conferences on innovation and sustainable development.</p>
+
+    <div class="research-grid">
+      <article class="rp rv d2">
+        <span class="rp-tag">Research Paper</span>
+        <h3 class="rp-title">Impact of Emotional Branding on Customer Purchasing Decisions for Nepalese Shoe Brands</h3>
+        <p class="rp-meta"><b>Author:</b> Hari Lal Kandel &nbsp;·&nbsp; <b>Co-author:</b> Diwash Regmi</p>
+        <p class="rp-pub">Published in <em>Valley State Research Review, Volume 2, Issue 1</em>. Presented at OCEM&#39;s 2nd International Conference on Innovations for a Sustainable Future, January 2026.</p>
+      </article>
+
+      <article class="rp rv d3">
+        <span class="rp-tag">Research Paper</span>
+        <h3 class="rp-title">Factors Influencing Consumer Preferences for Beer Brands in Bharatpur Metropolis</h3>
+        <p class="rp-meta"><b>Co-author:</b> Hari Lal Kandel &nbsp;·&nbsp; <b>Author:</b> Diwash Regmi</p>
+        <p class="rp-pub">Published in <em>Himalayan Journal of Multidisciplinary Research, Volume 1, Issue 1</em>. Presented at OCEM&#39;s 2nd International Conference, January 2026.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sl rv"><h2 class="st">Education</h2></div>
+  <div class="edu-row">
+    <div class="edu-c rv d1">
+      <span class="edu-tag">Graduate · 2026</span>
+      <h3 class="edu-title">Bachelor of<br>Business Administration (BBA)</h3>
+      <p class="edu-school">Valley State College, Bharatpur, Chitwan<br>Affiliated with Pokhara University | 2022–2026</p>
+    </div>
+    <div class="edu-c rv d2">
+      <span class="edu-tag">Completed 2021</span>
+      <h3 class="edu-title">Higher Secondary<br>Education (+2 Management)</h3>
+      <p class="edu-school">Gaindakot Namuna College<br>2019–2021</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="sl rv"><h2 class="st">Certificates &amp; Achievements</h2></div>
+  <p class="c-sub rv">All entries verified from original documents. Click on any certificate to view.</p>
+
+  <!-- Certificate Cards (text only — images shown on click) -->
+  <div class="cg">
+    <div class="cc rv d1">
+      <span class="ct">Certificate of Presentation</span>
+      <h4 class="cn">Impact of Emotional Branding on Customer Purchasing Decisions for Nepalese Shoe Brands</h4>
+      <p class="ci">OCEM's 2nd International Conference on Innovations for a Sustainable Future</p>
+      <span class="cd">9th–10th January 2026</span>
+      <button class="btn-view" onclick="openLightbox('cert-4.jpg')">View Certificate</button>
+    </div>
+
+    <div class="cc rv-s d2">
+      <span class="ct">Certificate of Presentation</span>
+      <h4 class="cn">Factors Influencing Consumer Preferences for Beer Brands</h4>
+      <p class="ci">OCEM's 2nd International Conference on Innovations for a Sustainable Future</p>
+      <span class="cd">9th–10th January 2026</span>
+      <button class="btn-view" onclick="openLightbox('cert-3.jpg')">View Certificate</button>
+    </div>
+
+    <div class="cc rv d3">
+      <span class="ct">1st Runner-Up</span>
+      <h4 class="cn">National Stock Pitching Competition-2026 — Provincial Round</h4>
+      <p class="ci">Stock Broker's Association of Nepal (SBAM) — Secured 2nd Position</p>
+      <span class="cd">2026</span>
+      <button class="btn-view" onclick="openLightbox('National Stock Pitching -2026.jpeg')">View Certificate</button>
+    </div>
+
+    <div class="cc rv-s d4">
+      <span class="ct">Certificate of Participation</span>
+      <h4 class="cn">National Stock Pitching Competition 2025 — Provincial Round</h4>
+      <p class="ci">KFA (Kusom Finance Club)</p>
+      <span class="cd">2025</span>
+      <button class="btn-view" onclick="openLightbox('cert-5.jpg')">View Certificate</button>
+    </div>
+
+    <div class="cc rv-s d4">
+      <span class="ct">Certificate of Recognition</span>
+      <h4 class="cn">Role Play — CEO, Augmented Business Simulation on Annual General Meeting of Himalayan Distillery Limited</h4>
+      <p class="ci">Department of Business & Society, Valley State College</p>
+      <span class="cd">Event: 2nd January 2025 · Issued: 17th January 2025</span>
+      <button class="btn-view" onclick="openLightbox('cert-7.jpg')">View Certificate</button>
+    </div>
+
+    <div class="cc rv d6">
+      <span class="ct">Certificate of Recognition</span>
+      <h4 class="cn">Role Play — Actor (Student), "Prevailing Social Taboos" Event</h4>
+      <p class="ci">Department of Sociology, Valley State College, Chitwan</p>
+      <span class="cd">Event: 10th & 11th July 2023 · Issued: 17th January 2025</span>
+      <button class="btn-view" onclick="openLightbox('cert-6.jpg')">View Certificate</button>
+    </div>
+
+    <div class="cc rv-s d7">
+      <span class="ct">Certificate of Recognition</span>
+      <h4 class="cn">Event Coordinator, "Augmented Simulation of National Insurance Meet-2026"</h4>
+      <p class="ci">Department of Soft Skills & Training, Valley State College, Chitwan</p>
+      <span class="cd">Event: 4th & 5th January 2026 · Issued: 5th January 2026</span>
+      <button class="btn-view" onclick="openLightbox('cert-2.jpg')">View Certificate</button>
+    </div>
+
+    <div class="cc rv-s d9">
+      <span class="ct">Certificate of Recognition</span>
+      <h4 class="cn">Conducting Valley State's Marketing Experiment Project-2023 (V-MEP), Team Vibrance</h4>
+      <p class="ci">Department of Marketing, Valley State College, Chitwan</p>
+      <span class="cd">Event: 21st–24th December 2023 · Issued: 24th December 2023</span>
+      <button class="btn-view" onclick="openLightbox('cert-9.jpg')">View Certificate</button>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Certificate">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-nav">
+      <button class="lb-prev" onclick="event.stopPropagation(); changeImage(-1)">&#10094;</button>
+      <button class="lb-next" onclick="event.stopPropagation(); changeImage(1)">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- PROGRAMS & ACTIVITIES -->
+<section id="programs">
+  <div class="sl rv"><h2 class="st">Projects &amp; Activities</h2></div>
+  <p class="prog-sub rv">Highlights from competitions, events, and professional projects.</p>
+
+  <div class="cg">
+    <div class="prog-card rv rv-l d1">
+      <div class="prog-card-header">
+        <span class="prog-tag">Competition</span>
+        <h3 class="prog-title">National Stock Pitching Competition NSPC-2026</h3>
+        <p class="prog-organizer">Stock Broker's Association of Nepal (SBAM)</p>
+      </div>
+      <div class="prog-gallery">
+        <img src="nspc-present.jpg" alt="NSPC-2026 Presentation" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="nspc-event.jpg" alt="NSPC-2026 Event" loading="lazy" onclick="openProgLightbox(this)">
+      </div>
+    </div>
+
+    <div class="prog-card rv rv-r d2">
+      <div class="prog-card-header">
+        <span class="prog-tag">Research Publication</span>
+        <h3 class="prog-title">Valley State Research Review (VSRR) Volume 2, Issue 1 — Successfully Released</h3>
+        <p class="prog-organizer">Valley State College · V-Smile Research</p>
+      </div>
+      <div class="prog-gallery prog-gallery-3">
+        <img src="vsrr-research.jpg" alt="VSRR Volume 2 Issue 1" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="vsrr-group.jpg" alt="VSRR Research Group" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="vsrr-vsmile.jpg" alt="V-Smile Research Team" loading="lazy" onclick="openProgLightbox(this)">
+      </div>
+    </div>
+    <div class="prog-card rv d3">
+      <div class="prog-card-header">
+        <span class="prog-tag">Conference</span>
+        <h3 class="prog-title">OCEM's 2nd International Conference on Innovation for Sustainable Future: Advancing Green Technologies and Multidisciplinary Research Trends</h3>
+        <p class="prog-organizer">OCEM</p>
+      </div>
+      <div class="prog-gallery prog-gallery-4">
+        <img src="OCEM'S 2nd International Conference.jpeg" alt="OCEM International Conference" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="Research Presentation 1.jpeg" alt="Research Presentation" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="Presentation 2.jpeg" alt="Presentation 2" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="Pic 3.jpeg" alt="Conference Activity" loading="lazy" onclick="openProgLightbox(this)">
+      </div>
+    </div>
+
+    <div class="prog-card rv d4">
+      <div class="prog-card-header">
+        <span class="prog-tag">Industrial Visit</span>
+        <h3 class="prog-title">Glimpses of Capital Visit 2025</h3>
+        <p class="prog-organizer">An insightful journey exploring Nepal's business landscape through visits to NEPSE, meeting CEO Chudamani Chapagain, along with Siddhartha Hospitality, DishHome, and Kantipur Media.</p>
+      </div>
+      <div class="prog-gallery prog-gallery-5">
+        <img src="Nepse Single Photo.jpeg" alt="NEPSE Nepal Stock Exchange" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="Meet.jpeg" alt="Meet with NEPSE CEO Chudamani Chapagain" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="Nepse Visit Group Photo.jpeg" alt="NEPSE Visit Group Photo" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="Dishhome Visit.jpeg" alt="DishHome Visit" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="Siddhartha Group.jpeg" alt="Siddhartha Hospitality Group" loading="lazy" onclick="openProgLightbox(this)">
+        <img src="Visit Group Kantipur Media.jpeg" alt="Kantipur Media Visit Group Photo" loading="lazy" onclick="openProgLightbox(this)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Program Lightbox -->
+<div id="prog-lightbox" class="prog-lightbox" onclick="closeProgLightbox()">
+  <button class="prog-lb-close" onclick="closeProgLightbox()">&times;</button>
+  <img id="prog-lb-img" src="" alt="">
+  <div class="prog-lb-caption" id="prog-lb-caption"></div>
+</div>
+
+<div class="hr"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="c-bg-text" aria-hidden="true">Contact</div>
+  <div class="sl rv"><h2 class="st">Get in Touch</h2></div>
+  <div class="ctd rv d1">
+    <div class="ct2">
+      <p class="ctl">Phone</p>
+      <a href="tel:+9779842700052" class="ctv">+977-9842700052</a>
+    </div>
+    <div class="ct2">
+      <p class="ctl">Email</p>
+      <a href="mailto:harikndel@gmail.com" class="ctv">harikndel@gmail.com</a>
+    </div>
+    <div class="ct2">
+      <p class="ctl">Address</p>
+      <span class="ctv">Bharatpur-20, Chitwan, Nepal</span>
+    </div>
+    <div class="ct2">
+      <p class="ctl">LinkedIn</p>
+      <a href="https://www.linkedin.com/in/hari-kandel-40b461362/" target="_blank" rel="noopener noreferrer" class="ctv">linkedin.com/in/hari-kandel</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="fc">© 2025 <span class="fc-em">Hari Lal Kandel</span></p>
+  <p class="fc">Bharatpur, Chitwan · Nepal</p>
+</footer>
+
+<script>
+// Cursor — smooth trailing motion
+const cur = document.getElementById('cur');
+const curR = document.getElementById('cur-r');
+let mx=0,my=0, dx=0,dy=0, rx=0,ry=0;
+let curVisible=false;
+document.addEventListener('mousemove', e => {
+  mx=e.clientX; my=e.clientY;
+  if(!curVisible){ curVisible=true; cur.style.opacity=1; curR.style.opacity=1; }
+});
+document.addEventListener('mouseleave', ()=>{ curVisible=false; cur.style.opacity=0; curR.style.opacity=0; });
+document.addEventListener('mouseenter', ()=>{ curVisible=true; cur.style.opacity=1; curR.style.opacity=1; });
+
+(function tick(){
+  // dot follows tightly but smoothly (fast)
+  dx+=(mx-dx)*0.55; dy+=(my-dy)*0.55;
+  cur.style.left=dx+'px'; cur.style.top=dy+'px';
+  // ring trails closer/faster
+  rx+=(mx-rx)*0.22; ry+=(my-ry)*0.22;
+  curR.style.left=rx+'px'; curR.style.top=ry+'px';
+  requestAnimationFrame(tick);
+})();
+document.querySelectorAll('a,.cc,.edu-c,.ct2,.btn,.prog-card,.prog-gallery img').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('h'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('h'));
+});
+
+// Scroll reveal
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+  });
+},{threshold:0.07, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// Lightbox functionality
+const certificates = [
+  {src: 'cert-4.jpg', type: 'Certificate of Presentation', title: 'Impact of Emotional Branding on Customer Purchasing Decisions for Nepalese Shoe Brands', issuer: "OCEM's 2nd International Conference on Innovations for a Sustainable Future", date: '9th–10th January 2026'},
+  {src: 'cert-3.jpg', type: 'Certificate of Presentation', title: 'Factors Influencing Consumer Preferences for Beer Brands', issuer: "OCEM's 2nd International Conference on Innovations for a Sustainable Future", date: '9th–10th January 2026'},
+  {src: 'National Stock Pitching -2026.jpeg', type: '1st Runner-Up', title: 'National Stock Pitching Competition-2026 — Provincial Round', issuer: "Stock Broker's Association of Nepal (SBAM) — Secured 2nd Position", date: '2026'},
+  {src: 'cert-5.jpg', type: 'Certificate of Participation', title: 'National Stock Pitching Competition 2025 — Provincial Round', issuer: 'KFA (Kusom Finance Club)', date: '2025'},
+  {src: 'cert-7.jpg', type: 'Certificate of Recognition', title: 'Role Play — CEO, Augmented Business Simulation on Annual General Meeting of Himalayan Distillery Limited', issuer: 'Department of Business & Society, Valley State College', date: 'Event: 2nd January 2025 · Issued: 17th January 2025'},
+  {src: 'cert-6.jpg', type: 'Certificate of Recognition', title: 'Role Play — Actor (Student), "Prevailing Social Taboos" Event', issuer: 'Department of Sociology, Valley State College, Chitwan', date: 'Event: 10th & 11th July 2023 · Issued: 17th January 2025'},
+  {src: 'cert-2.jpg', type: 'Certificate of Recognition', title: 'Event Coordinator, "Augmented Simulation of National Insurance Meet-2026"', issuer: 'Department of Soft Skills & Training, Valley State College, Chitwan', date: 'Event: 4th & 5th January 2026 · Issued: 5th January 2026'},
+  {src: 'cert-9.jpg', type: 'Certificate of Recognition', title: "Conducting Valley State's Marketing Experiment Project-2023 (V-MEP), Team Vibrance", issuer: 'Department of Marketing, Valley State College, Chitwan', date: 'Event: 21st–24th December 2023 · Issued: 24th December 2023'}
+];
+let currentIndex = 0;
+
+function openLightbox(imgSrc) {
+  currentIndex = certificates.findIndex(c => c.src === imgSrc);
+  if (currentIndex === -1) currentIndex = 0;
+  const cert = certificates[currentIndex];
+  document.getElementById('lightbox-img').src = cert.src;
+  document.getElementById('lightbox-img').alt = cert.title;
+  document.getElementById('lightbox-caption').innerHTML = `
+    <span class="lb-type">${cert.type}</span>
+    <h3 class="lb-title">${cert.title}</h3>
+    <p class="lb-issuer">${cert.issuer}</p>
+    <span class="lb-date">${cert.date}</span>
+  `;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function changeImage(direction) {
+  currentIndex += direction;
+  if (currentIndex < 0) currentIndex = certificates.length - 1;
+  if (currentIndex >= certificates.length) currentIndex = 0;
+  const cert = certificates[currentIndex];
+  document.getElementById('lightbox-img').src = cert.src;
+  document.getElementById('lightbox-img').alt = cert.title;
+  document.getElementById('lightbox-caption').innerHTML = `
+    <span class="lb-type">${cert.type}</span>
+    <h3 class="lb-title">${cert.title}</h3>
+    <p class="lb-issuer">${cert.issuer}</p>
+    <span class="lb-date">${cert.date}</span>
+  `;
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') changeImage(-1);
+  if (e.key === 'ArrowRight') changeImage(1);
+});
+
+// Program Gallery Lightbox
+function openProgLightbox(img) {
+  const lb = document.getElementById('prog-lightbox');
+  const lbImg = document.getElementById('prog-lb-img');
+  const lbCaption = document.getElementById('prog-lb-caption');
+  lbImg.src = img.src;
+  lbImg.alt = img.alt;
+  lbCaption.textContent = img.alt;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeProgLightbox() {
+  document.getElementById('prog-lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('prog-lightbox').classList.contains('active')) return;
+  if (e.key === 'Escape') closeProgLightbox();
+});
+</script>
+</body>
+</html>
