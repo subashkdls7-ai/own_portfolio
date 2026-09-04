@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Hari Lal Kandel</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@200;300;400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --emerald: #1a5c45;
+    --emerald-lt: #3d9970;
+    --gold: #c9a84c;
+    --ink: #1a1f1c;
+    --ink-soft: #3d4640;
+    --mist: #8a9e95;
+    --border: #dde8e3;
+    --cream: #faf8f3;
+    --display: 'Playfair Display', 'Times New Roman', serif;
+    --body: 'Outfit', sans-serif;
+  }
+  @page { size: A4; margin: 0; }
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 794px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .cv-header {
+    background: linear-gradient(135deg, var(--emerald) 0%, #0f3d2c 100%);
+    color: #fff;
+    padding: 2.4rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .cv-name {
+    font-family: var(--display);
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+  }
+  .cv-title {
+    font-family: var(--body);
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+  .cv-contact {
+    text-align: right;
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.7);
+  }
+  .cv-contact a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .cv-body { padding: 2rem 3rem 2.5rem; }
+  .cv-section { margin-bottom: 1.8rem; }
+  .cv-section-title {
+    font-family: var(--display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--emerald);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--emerald);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+  }
+  .cv-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .cv-edu { margin-bottom: 0.9rem; }
+  .cv-edu-degree {
+    font-family: var(--display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .cv-edu-school {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .cv-edu-date {
+    font-size: 0.75rem;
+    color: var(--mist);
+    font-weight: 400;
+  }
+  .cv-pub { margin-bottom: 0.9rem; }
+  .cv-pub-title {
+    font-family: var(--display);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .cv-pub-meta {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .cv-pub-meta b { color: var(--emerald); font-weight: 500; }
+  .cv-skill-group { margin-bottom: 0.8rem; }
+  .cv-skill-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--emerald);
+    margin-bottom: 0.3rem;
+  }
+  .cv-skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .cv-skill-tag {
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.2rem 0.6rem;
+  }
+  .cv-cert { margin-bottom: 0.6rem; }
+  .cv-cert-title {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .cv-cert-meta {
+    font-size: 0.73rem;
+    color: var(--mist);
+  }
+  .cv-activity { margin-bottom: 0.6rem; }
+  .cv-activity-title {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .cv-activity-meta {
+    font-size: 0.73rem;
+    color: var(--mist);
+  }
+  .cv-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--emerald-lt);
+    background: rgba(26,92,69,0.06);
+    border-radius: 2px;
+    padding: 0.15rem 0.5rem;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+  }
+  .cv-gold { color: var(--gold); }
+  @media print {
+    body { padding: 0; }
+    .cv-header { padding: 2rem 2.5rem; }
+    .cv-body { padding: 1.5rem 2.5rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cv-header">
+  <div>
+    <div class="cv-name">Hari Lal Kandel</div>
+    <div class="cv-title">BBA Graduate · Business &amp; Management Professional</div>
+  </div>
+  <div class="cv-contact">
+    Bharatpur-20, Chitwan, Nepal<br>
+    +977-9842700052<br>
+    <a href="mailto:harikndel@gmail.com">harikndel@gmail.com</a><br>
+    <a href="https://www.linkedin.com/in/hari-kandel-40b461362/" target="_blank">linkedin.com/in/hari-kandel</a>
+  </div>
+</div>
+
+<div class="cv-body">
+
+  <!-- OBJECTIVE -->
+  <div class="cv-section">
+    <div class="cv-section-title">Profile</div>
+    <p style="font-size:0.85rem; color:var(--ink-soft); line-height:1.75; text-align:justify;">
+      BBA graduate from Valley State College (affiliated with Pokhara University) with strong interests in business management, finance, marketing, research, and analytical decision-making. Experienced in research conferences, business simulations, stock pitching competitions, and leadership roles. Committed to continuous learning and contributing meaningfully to the business community.
+    </p>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="cv-section">
+    <div class="cv-section-title">Education</div>
+    <div class="cv-edu">
+      <div class="cv-edu-degree">Bachelor of Business Administration (BBA)</div>
+      <div class="cv-edu-school">Valley State College, Bharatpur, Chitwan · Affiliated with Pokhara University</div>
+      <div class="cv-edu-date">2022 – 2026</div>
+    </div>
+    <div class="cv-edu">
+      <div class="cv-edu-degree">Higher Secondary Education (+2 Management)</div>
+      <div class="cv-edu-school">Gaindakot Namuna College</div>
+      <div class="cv-edu-date">2019 – 2021</div>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <div class="cv-section">
+    <div class="cv-section-title">Research &amp; Publications</div>
+    <div class="cv-pub">
+      <div class="cv-pub-title">Impact of Emotional Branding on Customer Purchasing Decisions for Nepalese Shoe Brands</div>
+      <div class="cv-pub-meta"><b>Author:</b> Hari Lal Kandel · <b>Co-author:</b> Diwash Regmi · Published in <i>Valley State Research Review, Vol. 2, Issue 1</i> · Presented at OCEM's 2nd International Conference, January 2026</div>
+    </div>
+    <div class="cv-pub">
+      <div class="cv-pub-title">Factors Influencing Consumer Preferences for Beer Brands in Bharatpur Metropolis</div>
+      <div class="cv-pub-meta"><b>Co-author:</b> Hari Lal Kandel · <b>Author:</b> Diwash Regmi · Published in <i>Himalayan Journal of Multidisciplinary Research, Vol. 1, Issue 1</i> · Presented at OCEM's 2nd International Conference, January 2026</div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="cv-section">
+    <div class="cv-section-title">Skills</div>
+    <div class="cv-skill-group">
+      <div class="cv-skill-label">Soft Skills</div>
+      <div class="cv-skill-tags">
+        <span class="cv-skill-tag">Communication &amp; Presentation</span>
+        <span class="cv-skill-tag">Teamwork &amp; Collaboration</span>
+        <span class="cv-skill-tag">Leadership &amp; Coordination</span>
+        <span class="cv-skill-tag">Problem-Solving</span>
+        <span class="cv-skill-tag">Decision-Making</span>
+        <span class="cv-skill-tag">Adaptability</span>
+        <span class="cv-skill-tag">Time Management</span>
+        <span class="cv-skill-tag">Critical Thinking</span>
+      </div>
+    </div>
+    <div class="cv-skill-group">
+      <div class="cv-skill-label">Technical Skills</div>
+      <div class="cv-skill-tags">
+        <span class="cv-skill-tag">Microsoft Excel</span>
+        <span class="cv-skill-tag">Microsoft Word</span>
+        <span class="cv-skill-tag">Microsoft PowerPoint</span>
+        <span class="cv-skill-tag">Google Workspace</span>
+        <span class="cv-skill-tag">SPSS</span>
+        <span class="cv-skill-tag">Research &amp; Data Analysis</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+  <div class="cv-section">
+    <div class="cv-section-title">Certifications &amp; Achievements</div>
+    <div class="cv-cert">
+      <div class="cv-cert-title"><span class="cv-tag">Presentation</span> Impact of Emotional Branding on Customer Purchasing Decisions for Nepalese Shoe Brands</div>
+      <div class="cv-cert-meta">OCEM's 2nd International Conference · January 2026</div>
+    </div>
+    <div class="cv-cert">
+      <div class="cv-cert-title"><span class="cv-tag">Presentation</span> Factors Influencing Consumer Preferences for Beer Brands</div>
+      <div class="cv-cert-meta">OCEM's 2nd International Conference · January 2026</div>
+    </div>
+    <div class="cv-cert">
+      <div class="cv-cert-title"><span class="cv-tag cv-gold">1st Runner-Up</span> National Stock Pitching Competition-2026 — Provincial Round</div>
+      <div class="cv-cert-meta">Stock Broker's Association of Nepal (SBAM) · 2026</div>
+    </div>
+    <div class="cv-cert">
+      <div class="cv-cert-title"><span class="cv-tag">Participation</span> National Stock Pitching Competition 2025 — Provincial Round</div>
+      <div class="cv-cert-meta">KFA (Kusom Finance Club) · 2025</div>
+    </div>
+    <div class="cv-cert">
+      <div class="cv-cert-title"><span class="cv-tag">Recognition</span> Role Play — CEO, Augmented Business Simulation on AGM of Himalayan Distillery Limited</div>
+      <div class="cv-cert-meta">Department of Business &amp; Society, Valley State College · January 2025</div>
+    </div>
+    <div class="cv-cert">
+      <div class="cv-cert-title"><span class="cv-tag">Recognition</span> Role Play — Actor, "Prevailing Social Taboos" Event</div>
+      <div class="cv-cert-meta">Department of Sociology, Valley State College · July 2023</div>
+    </div>
+    <div class="cv-cert">
+      <div class="cv-cert-title"><span class="cv-tag">Recognition</span> Event Coordinator, "Augmented Simulation of National Insurance Meet-2026"</div>
+      <div class="cv-cert-meta">Department of Soft Skills &amp; Training, Valley State College · January 2026</div>
+    </div>
+    <div class="cv-cert">
+      <div class="cv-cert-title"><span class="cv-tag">Recognition</span> Conducting Valley State's Marketing Experiment Project-2023 (V-MEP), Team Vibrance</div>
+      <div class="cv-cert-meta">Department of Marketing, Valley State College · December 2023</div>
+    </div>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="cv-section">
+    <div class="cv-section-title">References</div>
+    <div class="cv-row">
+      <div>
+        <div class="cv-edu-degree">Mr. Baburam Khanal</div>
+        <div class="cv-edu-school">Principal, Valley State College, Bharatpur, Chitwan</div>
+        <div class="cv-edu-date">Email: principal@valleystatecollege.edu.np</div>
+        <div class="cv-edu-date">Mobile: +977-9855013054</div>
+      </div>
+      <div>
+        <div class="cv-edu-degree">Mr. Man Adhikari</div>
+        <div class="cv-edu-school">Coordinator, Valley State College</div>
+        <div class="cv-edu-date">Mobile: +977-9855086861 / +977-9865038315</div>
+        <div class="cv-edu-date">Email: valleystatecollege@gmail.com</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
