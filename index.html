@@ -923,6 +923,48 @@ footer {
 @keyframes spinSlow { from{ transform: rotate(0deg) } to{ transform: rotate(360deg) } }
 @keyframes blob { 0%,100%{ border-radius:50%; } 33%{ border-radius:42% 58% 60% 40%/45% 55% 45% 55%; } 66%{ border-radius:58% 42% 40% 60%/55% 45% 55% 45%; } }
 
+/* ===== BACK TO TOP SIDE PANEL ===== */
+#btt-wrap {
+  position: fixed; bottom: 32px; right: 24px; z-index: 900;
+  display: flex; align-items: center; gap: 14px;
+  opacity: 0; transform: translateY(18px);
+  pointer-events: none;
+  transition: opacity .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1);
+}
+#btt-wrap.show {
+  opacity: 1; transform: translateY(0); pointer-events: auto;
+}
+#btt-track {
+  width: 3px; height: 0; max-height: 120px;
+  background: var(--border); border-radius: 3px; overflow: hidden;
+  transition: height .5s cubic-bezier(.22,.61,.36,1);
+}
+#btt-wrap.show #btt-track { height: 80px; }
+#btt-progress {
+  width: 100%; height: 0%; background: var(--emerald); border-radius: 3px;
+  transition: height .15s ease-out;
+}
+@keyframes bttPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(26,92,69,.35) }
+  50% { box-shadow: 0 0 0 12px rgba(26,92,69,0) }
+}
+#btt-btn {
+  width: 48px; height: 48px; border: none; border-radius: 50%;
+  background: var(--emerald); color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  animation: bttPulse 2.4s ease-in-out infinite;
+  transition: background .3s ease, transform .35s cubic-bezier(.22,.61,.36,1);
+}
+#btt-btn:hover {
+  background: var(--emerald-mid); transform: scale(1.12);
+}
+#btt-btn svg {
+  transition: transform .3s ease;
+}
+#btt-btn:hover svg {
+  transform: translateY(-2px);
+}
+
 /* hero photo blob morph */
 .h-photo { border-radius: 50% 47% 53% 45%/50% 55% 45% 50%; animation: blob 10s ease-in-out infinite; }
 .h-photo-wrap::after {
@@ -970,6 +1012,9 @@ footer {
   .prog-gallery-3 img, .prog-gallery img { border-right: none; border-bottom: 1px solid var(--border); }
   #contact { padding: 4rem 1.5rem; }
   footer { padding: 1.4rem 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
+  #btt-wrap { bottom: 20px; right: 16px; gap: 10px; }
+  #btt-wrap.show #btt-track { height: 60px; }
+  #btt-btn { width: 42px; height: 42px; }
   #cur, #cur-r { display: none; }
   *, a { cursor: auto; }
 }
@@ -1325,6 +1370,16 @@ footer {
   </div>
 </section>
 
+<!-- BACK TO TOP -->
+<div id="btt-wrap" aria-hidden="true">
+  <div id="btt-track">
+    <div id="btt-progress"></div>
+  </div>
+  <button id="btt-btn" title="Back to top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <p class="fc">© 2025 <span class="fc-em">Hari Lal Kandel</span></p>
@@ -1353,7 +1408,7 @@ document.addEventListener('mouseenter', ()=>{ curVisible=true; cur.style.opacity
   curR.style.left=rx+'px'; curR.style.top=ry+'px';
   requestAnimationFrame(tick);
 })();
-document.querySelectorAll('a,.cc,.edu-c,.ct2,.btn,.prog-card,.prog-gallery img,.skill-group,.cv-dl-btn').forEach(el=>{
+document.querySelectorAll('a,.cc,.edu-c,.ct2,.btn,.prog-card,.prog-gallery img,.skill-group,.cv-dl-btn,#btt-btn').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('h'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('h'));
 });
@@ -1365,6 +1420,28 @@ const io = new IntersectionObserver(entries=>{
   });
 },{threshold:0.07, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// Back to top — side panel with progress bar
+const bttWrap = document.getElementById('btt-wrap');
+const bttBtn = document.getElementById('btt-btn');
+const bttProgress = document.getElementById('btt-progress');
+const bttShowAt = 320;
+
+function updateBtt(){
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const y = window.scrollY;
+  if(y > bttShowAt){
+    bttWrap.classList.add('show');
+    bttProgress.style.height = (max > 0 ? Math.min(100,(y/max)*100) : 0) + '%';
+  }else{
+    bttWrap.classList.remove('show');
+    bttProgress.style.height = '0%';
+  }
+}
+bttBtn.addEventListener('click', ()=> window.scrollTo({ top:0, behavior:'smooth' }));
+window.addEventListener('scroll', updateBtt, {passive:true});
+window.addEventListener('resize', updateBtt);
+updateBtt();
 
 // Lightbox functionality
 const certificates = [
