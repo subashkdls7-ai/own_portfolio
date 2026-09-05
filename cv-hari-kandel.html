@@ -40,12 +40,26 @@
     align-items: flex-start;
   }
   .cv-ph {
-    width: 92px; height: 92px;
+    width: 115px; height: 115px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--gold);
     box-shadow: 0 0 0 4px rgba(201,168,76,0.25), 0 8px 20px rgba(0,0,0,0.25);
     display: block;
+  }
+  .cv-header-left { flex: 1; }
+  .cv-contact-line {
+    margin-top: 0.7rem;
+    font-size: 0.76rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.7);
+  }
+  .cv-contact-line a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .cv-contact-line span { margin-right: 0.9rem; }
+  .cv-header-right {
+    flex-shrink: 0;
+    margin-left: 2rem;
+    padding-top: 0.15rem;
   }
   .cv-name {
     font-family: var(--display);
@@ -207,16 +221,17 @@
 <body>
 
 <div class="cv-header">
-  <div>
+  <div class="cv-header-left">
     <div class="cv-name">Hari Lal Kandel</div>
     <div class="cv-title">BBA Graduate · Business &amp; Management Professional</div>
+    <div class="cv-contact-line">
+      Bharatpur-20, Chitwan, Nepal<br>
+      +977-9842700052 · <a href="mailto:harikndel@gmail.com">harikndel@gmail.com</a><br>
+      <a href="https://www.linkedin.com/in/hari-kandel-40b461362/" target="_blank">linkedin.com/in/hari-kandel</a>
+    </div>
   </div>
-  <div class="cv-contact">
+  <div class="cv-header-right">
     <img class="cv-ph" src="pp.jpg" alt="Hari Lal Kandel">
-    Bharatpur-20, Chitwan, Nepal<br>
-    +977-9842700052<br>
-    <a href="mailto:harikndel@gmail.com">harikndel@gmail.com</a><br>
-    <a href="https://www.linkedin.com/in/hari-kandel-40b461362/" target="_blank">linkedin.com/in/hari-kandel</a>
   </div>
 </div>
 
