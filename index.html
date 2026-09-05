@@ -566,6 +566,15 @@ section { padding: 5rem 4rem; }
   padding: 0.25rem 0.75rem; border-radius: 2px;
   width: fit-content;
 }
+.ct-lg {
+  font-family: var(--display); font-size: 1rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); background: rgba(201,168,76,0.14);
+  border: 1px solid rgba(201,168,76,0.42);
+  display: inline-block; padding: 0.35rem 0.9rem; border-radius: 4px;
+  width: fit-content;
+}
+.ci b { font-weight: 600; color: var(--emerald); }
 .cn {
   font-family: var(--display); font-size: 1.05rem; font-weight: 700;
   line-height: 1.35; color: var(--ink);
@@ -1171,9 +1180,9 @@ footer {
     </div>
 
     <div class="cc rv d3">
-      <span class="ct">1st Runner-Up</span>
+      <span class="ct-lg">1st Runner-Up</span>
       <h4 class="cn">National Stock Pitching Competition-2026 — Provincial Round</h4>
-      <p class="ci">Stock Broker's Association of Nepal (SBAM) — Secured 2nd Position</p>
+      <p class="ci">Stock Broker's Association of Nepal (SBAM) — <b>Secured 2nd Position</b></p>
       <span class="cd">2026</span>
       <button class="btn-view" onclick="openLightbox('National Stock Pitching -2026.jpeg')">View Certificate</button>
     </div>
@@ -1184,6 +1193,14 @@ footer {
       <p class="ci">KFA (Kusom Finance Club)</p>
       <span class="cd">2025</span>
       <button class="btn-view" onclick="openLightbox('cert-5.jpg')">View Certificate</button>
+    </div>
+
+    <div class="cc rv-s d5">
+      <span class="ct">Certificate of Contribution</span>
+      <h4 class="cn">Trainer — Nepal Share Market Workshop (Beginner Level)</h4>
+      <p class="ci">Organized by Valley State College (VSC) for the Students of Aroma College</p>
+      <span class="cd">2026</span>
+      <button class="btn-view" onclick="openLightbox('Nepal Sharemarket Training.jpeg')">View Certificate</button>
     </div>
 
     <div class="cc rv-s d4">
@@ -1452,7 +1469,8 @@ const certificates = [
   {src: 'cert-7.jpg', type: 'Certificate of Recognition', title: 'Role Play — CEO, Augmented Business Simulation on Annual General Meeting of Himalayan Distillery Limited', issuer: 'Department of Business & Society, Valley State College', date: 'Event: 2nd January 2025 · Issued: 17th January 2025'},
   {src: 'cert-6.jpg', type: 'Certificate of Recognition', title: 'Role Play — Actor (Student), "Prevailing Social Taboos" Event', issuer: 'Department of Sociology, Valley State College, Chitwan', date: 'Event: 10th & 11th July 2023 · Issued: 17th January 2025'},
   {src: 'cert-2.jpg', type: 'Certificate of Recognition', title: 'Event Coordinator, "Augmented Simulation of National Insurance Meet-2026"', issuer: 'Department of Soft Skills & Training, Valley State College, Chitwan', date: 'Event: 4th & 5th January 2026 · Issued: 5th January 2026'},
-  {src: 'cert-9.jpg', type: 'Certificate of Recognition', title: "Conducting Valley State's Marketing Experiment Project-2023 (V-MEP), Team Vibrance", issuer: 'Department of Marketing, Valley State College, Chitwan', date: 'Event: 21st–24th December 2023 · Issued: 24th December 2023'}
+  {src: 'cert-9.jpg', type: 'Certificate of Recognition', title: "Conducting Valley State's Marketing Experiment Project-2023 (V-MEP), Team Vibrance", issuer: 'Department of Marketing, Valley State College, Chitwan', date: 'Event: 21st–24th December 2023 · Issued: 24th December 2023'},
+  {src: 'Nepal Sharemarket Training.jpeg', type: 'Certificate of Contribution', title: 'Trainer — Nepal Share Market Workshop (Beginner Level)', issuer: 'Organized by Valley State College (VSC) for the Students of Aroma College', date: '2026'}
 ];
 let currentIndex = 0;
 
