@@ -39,13 +39,14 @@
   --body: 'Outfit', sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; overflow-x: clip; }
 body {
   background: var(--cream);
   color: var(--ink);
   font-family: var(--body);
   font-weight: 300;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::-webkit-scrollbar { width: 3px; }
@@ -1005,6 +1006,13 @@ footer {
   .nav-links { width: 100%; flex-wrap: wrap; justify-content: flex-start; column-gap: 1.1rem; row-gap: 0.45rem; }
   .nav-links a { font-size: 0.62rem; letter-spacing: 0.09em; }
 
+  /* gentler scroll-reveal distances — no content pushed off the edge */
+  .rv { transform: translateY(20px); }
+  .rv-l { transform: translateX(-14px); }
+  .rv-r { transform: translateX(14px); }
+  .rv-s { transform: scale(0.94); }
+  .rv-b { transform: translateY(40px); }
+
   /* hero — let content grow instead of being clipped by 100vh overflow */
   #hero { height: auto; min-height: 100vh; overflow: visible; padding: 7.5rem 1.5rem 4rem; }
   #about, section { scroll-margin-top: 95px; }
@@ -1504,8 +1512,20 @@ const io = new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
   });
-},{threshold:0.07, rootMargin:'0px 0px -40px 0px'});
+},{threshold:0.03, rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// reveal anything already in the viewport right away (no invisible content on load)
+function revealInView(){
+  const vh = window.innerHeight;
+  document.querySelectorAll('.rv:not(.on)').forEach(el=>{
+    const r = el.getBoundingClientRect();
+    if(r.top <= vh - 20 && r.bottom >= 0){ el.classList.add('on'); io.unobserve(el); }
+  });
+}
+revealInView();
+window.addEventListener('load', revealInView);
+window.addEventListener('resize', revealInView);
 
 // Back to top — side panel with progress bar
 const bttWrap = document.getElementById('btt-wrap');
