@@ -117,20 +117,6 @@
     color: var(--mist);
     font-weight: 400;
   }
-  .cv-work {
-    background: rgba(26,92,69,0.04);
-    border-left: 3px solid var(--emerald-lt);
-    padding: 0.9rem 1.2rem;
-    border-radius: 4px;
-    animation: cvWorkPulse 3s ease-in-out infinite;
-  }
-  .cv-work .cv-edu-degree { font-size: 1.2rem; }
-  .cv-work .cv-edu-school { font-size: 0.95rem; font-weight: 400; }
-  .cv-work .cv-edu-date { font-size: 0.85rem; color: var(--emerald); font-weight: 500; }
-  @keyframes cvWorkPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(26,92,69,0.0); }
-    50% { box-shadow: 0 4px 18px rgba(26,92,69,0.12); }
-  }
   .cv-pub { margin-bottom: 0.9rem; }
   .cv-pub-title {
     font-family: var(--display);
@@ -283,7 +269,7 @@
   <!-- WORK EXPERIENCE -->
   <div class="cv-section">
     <div class="cv-section-title">Work Experience</div>
-    <div class="cv-edu cv-work">
+    <div class="cv-edu">
       <div class="cv-edu-degree">Accountant</div>
       <div class="cv-edu-school">Narmada Saving &amp; Credit Co-operative Ltd.</div>
       <div class="cv-edu-date">19 March 2024 – Present</div>
